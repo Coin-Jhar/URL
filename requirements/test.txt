@@ -1,0 +1,5 @@
+-r base.txt
+pytest>=6.0
+pytest-cov>=2.12
+pytest-mock>=3.6
+responses>=0.13
