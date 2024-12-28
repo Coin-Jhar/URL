@@ -1,13 +1,22 @@
 # URL Analyzer
 
-A Python tool for analyzing URLs, extracting components, and validating structure.
+A Python tool for analyzing URLs and DNS records.
 
 ## Features
 
-- URL validation and normalization
-- Component extraction (scheme, domain, path, query parameters)
-- Domain parsing
-- Command-line interface
+- URL Analysis:
+  - URL validation and normalization
+  - Component extraction (scheme, domain, path, query parameters)
+  - Domain parsing
+
+- DNS Analysis:
+  - A records (IPv4)
+  - AAAA records (IPv6)
+  - CNAME records
+  - MX records (mail servers)
+  - TXT records
+  - NS records (nameservers)
+  - SOA records
 
 ## Installation
 
@@ -26,28 +35,38 @@ pip install -e .
 
 ## Usage
 
-### Command Line
+### Basic URL Analysis
 ```bash
-# Basic URL analysis
-url-analyzer https://example.com/path?param=value
+# Analyze URL structure (default mode)
+url-analyzer https://example.com
 
-# JSON output
-url-analyzer --format json https://example.com/path?param=value
+# Get JSON output
+url-analyzer https://example.com --format json
 ```
 
-### Python API
-```python
-from url_analyzer.core.base_analyzer import BaseURLAnalyzer
+### DNS Analysis
+```bash
+# Get DNS records
+url-analyzer https://example.com --mode dns
 
-# Create analyzer
-analyzer = BaseURLAnalyzer("https://example.com/path?param=value")
-
-# Get URL info
-info = analyzer.get_base_info()
-
-# Get domain
-domain = analyzer.get_domain()
+# Get DNS records in JSON format
+url-analyzer https://example.com --mode dns --format json
 ```
+
+### Complete Analysis
+```bash
+# Get both URL and DNS analysis
+url-analyzer https://example.com --mode full
+```
+
+### Available Modes
+- `url`: Analyze URL structure only (default)
+- `dns`: Get DNS records only
+- `full`: Complete analysis including both URL and DNS
+
+### Output Formats
+- `text`: Human-readable format (default)
+- `json`: JSON format for programmatic use
 
 ## Development
 

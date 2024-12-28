@@ -13,4 +13,9 @@ setup(
         "python-whois>=0.7.3",
         "pyOpenSSL>=20.0.1",
     ],
+    entry_points={
+        'console_scripts': [
+            'url-analyzer=url_analyzer.cli.main:main',
+        ],
+    },
 )

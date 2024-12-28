@@ -6,6 +6,10 @@ class InvalidURLError(URLAnalyzerError):
     """Raised when a URL is invalid."""
     pass
 
+class DNSAnalyzerError(URLAnalyzerError):
+    """Raised when there's an error in DNS analysis."""
+    pass
+
 class ConnectionError(URLAnalyzerError):
     """Raised when there's an error connecting to the URL."""
     pass
